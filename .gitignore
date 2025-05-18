@@ -1,0 +1,79 @@
+# 通用忽略规则
+*.log
+*.tmp
+*.swp
+*.bak
+*.DS_Store
+.DS_Store
+*.iml
+*.class
+*.jar
+*.war
+*.nar
+*.ear
+*.zip
+*.tar.gz
+*.pid
+*.seed
+*.pid.lock
+
+
+# Node.js/Vue 相关
+node_modules/
+dist/
+
+
+# Spring Boot 相关
+target/
+!target/*.jar
+!.mvn/wrapper/maven-wrapper.jar
+.mvn/
+.mvn/wrapper/
+*.class
+*.jar
+*.war
+*.ear
+*.original
+*.factorypath
+.project
+bin/
+build/
+out/
+logs/
+
+
+# 系统文件
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# 测试相关
+coverage/
+*.lcov
+.nyc_output/
+
+# 文档
+*.doc
+*.docx
+*.xls
+*.xlsx
+*.ppt
+*.pptx
+*.pdf
+
+# 上传文件目录（根据项目需要保留）
+# /files/
+# !/files/.gitkeep
+
+# Vue 环境变量（生产环境应通过CI/CD注入）
+.env
+.env.local
+.env.*.local
+
+
+# Flyway 迁移脚本（已提交的SQL不忽略）
+# !src/main/resources/db/migration/
+
+# 保留必要的空目录标记
+!.gitkeep
+!.keep
