@@ -1,15 +1,15 @@
 <template>
-  <div>
+  <div class="front-pc-wrapper">
     <div class="front-notice"><i class="el-icon-bell" style="margin-right: 2px"></i>公告：{{ top }}</div>
     <!--头部-->
     <div class="front-header">
-      <div class="front-header-left"@click="navTo('/front/home')">
+      <div class="front-header-left" @click="navTo('/front/home')">
         <img src="@/assets/imgs/logo.png" alt="">
         <div class="title">OneStop</div>
       </div>
-      <div class="front-header-center" style="text-align: right">
-        <el-input style="width: 200px" placeholder="请输入商品名称" v-model="name"></el-input>
-        <el-button type="primary" style="margin-left: 5px" @click="search">搜素</el-button>
+      <div class="front-header-center">
+        <el-input class="search-input" placeholder="请输入商品名称" v-model="name"></el-input>
+        <el-button type="primary" class="search-btn" @click="search">搜索</el-button>
       </div>
       <div class="front-header-right">
         <div v-if="!user.username">
@@ -50,7 +50,6 @@
       <router-view ref="child" @update:user="updateUser" />
     </div>
   </div>
-
 </template>
 
 <script>
@@ -63,6 +62,7 @@ export default {
       top: '',
       notice: [],
       user: JSON.parse(localStorage.getItem("xm-user") || '{}'),
+      name: ''
     }
   },
 
@@ -99,6 +99,14 @@ export default {
     },
     search() {
       let name = this.name ? this.name : ''
+      console.log(name)
+      if(!name) {
+        this.$message({
+          message: '请输入商品名称',
+          type: 'warning'
+        })
+        return
+      }
       location.href = '/front/search?name=' + name
     }
   }
@@ -107,5 +115,98 @@ export default {
 </script>
 
 <style scoped>
-  @import "@/assets/css/front.css";
+.front-pc-wrapper {
+  width: 100vw;
+  min-width: 1200px;
+  max-width: 100vw;
+  margin: 0;
+  background: #fff;
+  min-height: 100vh;
+  box-shadow: 0 0 16px #e0e0e0;
+  padding-bottom: 2vw;
+}
+.front-notice {
+  background: #f5f5f5;
+  color: #333;
+  font-size: 1.1vw;
+  padding: 0.7vw 3vw;
+  border-bottom: 1px solid #ececec;
+  letter-spacing: 1px;
+}
+.front-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 6vw;
+  min-height: 60px;
+  padding: 0 3vw;
+  background: #fff;
+  border-bottom: 1px solid #ececec;
+}
+.front-header-left {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+.front-header-left img {
+  width: 3vw;
+  min-width: 40px;
+  height: 3vw;
+  min-height: 40px;
+}
+.front-header-left .title {
+  font-size: 2vw;
+  min-width: 80px;
+  font-weight: bold;
+  margin-left: 1vw;
+  color: #7c3aed;
+  letter-spacing: 2px;
+}
+.front-header-center {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.search-input {
+  width: 16vw;
+  min-width: 180px;
+  max-width: 320px;
+}
+.search-btn {
+  margin-left: 0.7vw;
+}
+.front-header-right {
+  display: flex;
+  align-items: center;
+  min-width: 180px;
+  justify-content: flex-end;
+}
+.front-header-dropdown {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+.front-header-dropdown img {
+  width: 2.5vw;
+  min-width: 36px;
+  height: 2.5vw;
+  min-height: 36px;
+  border-radius: 50%;
+  border: 1px solid #ececec;
+}
+.main-body {
+  padding: 2vw 2vw 0 2vw;
+  min-height: 700px;
+  background: #fafbfc;
+}
+@media (max-width: 1400px) {
+  .front-pc-wrapper {
+    min-width: 900px;
+  }
+  .main-body, .front-header, .front-notice {
+    padding-left: 1vw;
+    padding-right: 1vw;
+  }
+}
 </style>
