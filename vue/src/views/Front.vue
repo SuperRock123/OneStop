@@ -4,7 +4,7 @@
     <!--头部-->
     <div class="front-header">
       <div class="front-header-left" @click="navTo('/front/home')">
-        <img src="@/assets/imgs/logo.png" alt="">
+        <img src="@/assets/imgs/logo1.png" alt="">
         <div class="title">OneStop</div>
       </div>
       <div class="front-header-center">

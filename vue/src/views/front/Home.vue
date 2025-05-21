@@ -72,7 +72,10 @@
               <div class="goods-card" @click="navTo('/front/detail?id=' + item.id)">
                 <img :src="item.img" alt="">
                 <div class="goods-name">{{ item.name }}</div>
-                <div class="goods-price">￥ {{ item.price }} / {{ item.unit }}</div>
+                <div class="goods-price">
+                  ￥ {{ item.price }}
+                  <template v-if="item.unit && item.unit !== ''"> / {{ item.unit }}</template>
+                </div>
               </div>
             </el-col>
           </el-row>
