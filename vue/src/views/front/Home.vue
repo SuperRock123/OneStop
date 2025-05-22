@@ -3,7 +3,12 @@
     <div class="main-content-inner">
       <div class="left"></div>
       <div class="center">
-        <div class="market-title">主题市场</div>
+        <div class="market-title market-title-animate">
+          <span class="char char1">热</span>
+          <span class="char char2">门</span>
+          <span class="char char3">分</span>
+          <span class="char char4">类</span>
+        </div>
         <div class="market-section">
           <div class="market-types">
             <div class="type-item" v-for="item in typeData" :key="item.id">
@@ -110,19 +115,20 @@ export default {
       goodsData: [],
       recommendData: [],
       carousel_top: [
-        require('@/assets/imgs/carousel-1.png'),
-        require('@/assets/imgs/carousel-2.png'),
-        require('@/assets/imgs/carousel-9.png'),
+        "https://img13.360buyimg.com/cms/jfs/t1/277154/38/14007/113935/67eb7385F3f2e54f2/28e8fb08d623aa3d.jpg",
+        "https://img12.360buyimg.com/cms/jfs/t1/321053/30/342/580692/68234e14F49ec8e2e/ee6dcfc52f5f51a2.jpg",
+        "https://img12.360buyimg.com/cms/jfs/t1/273101/3/14052/52397/67eb71b9F8080cc21/d2955015b8b96814.jpg",
+        "https://m.360buyimg.com/babel/jfs/t1/308984/32/2956/128972/682db43cF1197dc1e/3375d9c84b4d2bff.jpg.webp"
       ],
       carousel_left: [
-        require('@/assets/imgs/carousel-3.png'),
-        require('@/assets/imgs/carousel-4.png'),
-        require('@/assets/imgs/carousel-5.png'),
+        "https://img10.360buyimg.com/n5/s720x720_jfs/t1/296688/20/8995/81758/682d7cb0F16122751/fd2ab44693f2c7b3.jpg.avif",
+        "https://img13.360buyimg.com/n5/s720x720_jfs/t1/294073/29/7209/45861/6827500cF98d04054/a4108e125bcb3cf6.png.avif",
+        "https://img10.360buyimg.com/n5/s720x720_jfs/t1/295853/17/6372/66168/68271438F8e188f6f/657c6f6633caafe6.jpg.avif"
       ],
       carousel_right: [
-        require('@/assets/imgs/carousel-6.png'),
-        require('@/assets/imgs/carousel-7.png'),
-        require('@/assets/imgs/carousel-8.png'),
+        "https://img12.360buyimg.com/n5/s720x720_jfs/t1/295380/33/8695/147143/682c540fF5ba3798d/cb4028f67bc3ac1c.jpg.avif",
+        "https://img13.360buyimg.com/n5/s720x720_jfs/t1/313388/21/1564/189737/68276598F845f1686/ed4d9174aaf80d3b.jpg.avif",
+        "https://img13.360buyimg.com/n5/s720x720_jfs/t1/297140/10/6781/142150/6825c91cF04ea7f06/73dcc1378635770d.jpg.avif"
       ],
     }
   },
@@ -191,7 +197,6 @@ export default {
 .main-content {
   min-height: 100vh;
   background-size: 100%;
-  background-image: url('@/assets/imgs/img.png');
   display: flex;
   justify-content: center;
 }
@@ -203,29 +208,12 @@ export default {
   margin: 0 auto;
   min-height: 100vh;
 }
-
-/* .left,
-.right {
-  width: 12%;
-  min-width: 100px;
-  background-repeat: no-repeat;
-  background-size: contain;
-} */
-
-.left {
-  background-image: url('@/assets/imgs/left-img.png');
-}
-
-.right {
-  background-image: url('@/assets/imgs/right-img.png');
-}
-
 .center {
   width: 100%;
   min-width: 800px;
   background: #fff;
   min-height: 100vh;
-  padding: 2vw 2vw 3vw 2vw;
+  padding: 0vw 2vw 3vw 2vw;
   box-sizing: border-box;
   border-radius: 1vw;
   box-shadow: 0 0 16px #e0e0e0;
@@ -465,4 +453,25 @@ export default {
     padding: 1vw 0.5vw 2vw 0.5vw;
   }
 }
+.market-title-animate {
+  display: flex;
+  gap: 0.2vw;
+  font-size: 2vw;
+  font-weight: bold;
+  letter-spacing: 0.2vw;
+}
+
+.char {
+  display: inline-block;
+  animation: floatY 1.2s ease-in-out infinite alternate;
+  color: #7c3aed;
+  transition: color 0.3s;
+  cursor: pointer;
+}
+
+.char1 { animation-delay: 0s; color: #7c3aed; }
+.char2 { animation-delay: 0.2s; color: #a78bfa; }
+.char3 { animation-delay: 0.4s; color: #c4b5fd; }
+.char4 { animation-delay: 0.6s; color: #8b5cf6; }
+
 </style>

@@ -4,6 +4,10 @@ import com.example.common.Result;
 import com.example.entity.Type;
 import com.example.service.TypeService;
 import com.github.pagehelper.PageInfo;
+
+import org.springframework.http.CacheControl;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -59,9 +63,12 @@ public class TypeController {
      * 根据ID查询
      */
     @GetMapping("/selectById/{id}")
-    public Result selectById(@PathVariable Integer id) {
+    public ResponseEntity<Result> selectById(@PathVariable Integer id) {
         Type type = typeService.selectById(id);
-        return Result.success(type);
+        // 设置前端缓存 60 秒
+        HttpHeaders headers = new HttpHeaders();
+        headers.setCacheControl(CacheControl.maxAge(60, java.util.concurrent.TimeUnit.SECONDS));
+        return ResponseEntity.ok().headers(headers).body(Result.success(type));
     }
 
     /**

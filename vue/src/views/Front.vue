@@ -137,7 +137,7 @@ export default {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 6vw;
+  height: 4vw;
   min-height: 60px;
   padding: 0 3vw;
   background: #fff;
@@ -196,7 +196,7 @@ export default {
   border: 1px solid #ececec;
 }
 .main-body {
-  padding: 2vw 2vw 0 2vw;
+  padding: 1vw 2vw 0 2vw;
   min-height: 700px;
   background: #fafbfc;
 }

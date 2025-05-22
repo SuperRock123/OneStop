@@ -4,6 +4,10 @@ import com.example.common.Result;
 import com.example.entity.Goods;
 import com.example.service.GoodsService;
 import com.github.pagehelper.PageInfo;
+
+import org.springframework.http.CacheControl;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -64,12 +68,12 @@ public class GoodsController {
         return Result.success(goods);
     }
 
+    @GetMapping("/selectTop15")
+    public Result selectTop15() {
+        List<Goods> list = goodsService.selectTop15();
+        return Result.success(list);
+    }
 
-@GetMapping("/selectTop15")
-public Result selectTop15() {
-    List<Goods> list = goodsService.selectTop15();
-    return Result.success(list);
-}
     /**
      * 查询所有
      */
@@ -79,33 +83,41 @@ public Result selectTop15() {
         List<Goods> list = goodsService.selectAll(goods);
         return Result.success(list);
     }
+
     @GetMapping("/selectByTypeId")
     public Result selectByTypeId(@RequestParam Integer id) {
         List<Goods> list = goodsService.selectByTypeId(id);
         return Result.success(list);
     }
+
     @GetMapping("/selectByName")
     public Result selectByName(@RequestParam String name) {
         List<Goods> list = goodsService.selectByName(name);
         return Result.success(list);
     }
+
     @GetMapping("/selectByBusinessId")
     public Result selectByBusinessId(@RequestParam Integer id) {
         List<Goods> list = goodsService.selectByBusinessId(id);
         return Result.success(list);
     }
+
     @GetMapping("/recommend")
-    public Result recommend(){
+    public ResponseEntity<Result> recommend() {
         List<Goods> list = goodsService.recommend();
-        return Result.success(list);
+        // 设置前端缓存 60 秒
+        HttpHeaders headers = new HttpHeaders();
+        headers.setCacheControl(CacheControl.maxAge(20, java.util.concurrent.TimeUnit.SECONDS));
+        return ResponseEntity.ok().headers(headers).body(Result.success(list));
     }
+
     /**
      * 分页查询
      */
     @GetMapping("/selectPage")
     public Result selectPage(Goods goods,
-                             @RequestParam(defaultValue = "1") Integer pageNum,
-                             @RequestParam(defaultValue = "10") Integer pageSize) {
+            @RequestParam(defaultValue = "1") Integer pageNum,
+            @RequestParam(defaultValue = "10") Integer pageSize) {
         PageInfo<Goods> page = goodsService.selectPage(goods, pageNum, pageSize);
         return Result.success(page);
     }
