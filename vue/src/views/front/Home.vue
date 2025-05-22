@@ -43,7 +43,7 @@
               <div class="user-name">Hi，{{ user.name }}</div>
             </div>
             <div class="user-banner">
-              <img src="@/assets/imgs/right.png" alt="">
+              <img src="@/assets/imgs/618.jpg" alt="">
             </div>
             <div class="user-notice">
               <i class="el-icon-bell"></i>

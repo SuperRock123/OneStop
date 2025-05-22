@@ -196,6 +196,9 @@ export default {
       // 把头像属性换成上传的图片的链接
       this.form.avatar = response.data
     },
+    async updateUserInfo() { 
+
+    },
   }
 }
 </script>

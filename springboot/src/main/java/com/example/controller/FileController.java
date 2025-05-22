@@ -14,14 +14,13 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.OutputStream;
 import java.net.URLEncoder;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 /**
  * 文件接口
  */
 @RestController
-@RequestMapping("/files")
+@RequestMapping("/1/files")
 public class FileController {
 
     // 文件上传存储路径
@@ -49,16 +48,15 @@ public class FileController {
                 FileUtil.mkdir(filePath);
             }
             // 文件存储形式：时间戳-文件名
-            FileUtil.writeBytes(file.getBytes(), filePath + flag + "-" + fileName);  // ***/manager/files/1697438073596-avatar.png
+            FileUtil.writeBytes(file.getBytes(), filePath + flag + "-" + fileName); // ***/manager/files/1697438073596-avatar.png
             System.out.println(fileName + "--上传成功");
 
         } catch (Exception e) {
             System.err.println(fileName + "--文件上传失败");
         }
         String http = "http://" + ip + ":" + port + "/files/";
-        return Result.success(http + flag + "-" + fileName);  //  http://localhost:9090/files/1697438073596-avatar.png
+        return Result.success(http + flag + "-" + fileName); // http://localhost:9090/files/1697438073596-avatar.png
     }
-
 
     /**
      * 获取文件
@@ -66,7 +64,7 @@ public class FileController {
      * @param flag
      * @param response
      */
-    @GetMapping("/{flag}")   //  1697438073596-avatar.png
+    @GetMapping("/{flag}") // 1697438073596-avatar.png
     public void avatarPath(@PathVariable String flag, HttpServletResponse response) {
         OutputStream os;
         try {
@@ -94,6 +92,7 @@ public class FileController {
         FileUtil.del(filePath + flag);
         System.out.println("删除文件" + flag + "成功");
     }
+
     /**
      * wang-editor编辑器文件上传接口
      */

@@ -7,12 +7,9 @@
     <list default="true" id="f4d204d5-b38f-42c7-82f7-fca16ed3058e" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/controller/GoodsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/controller/GoodsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/controller/TypeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/controller/TypeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/service/GoodsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/service/GoodsService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue/src/views/Front.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../vue/src/views/Front.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue/src/views/front/Detail.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../vue/src/views/front/Detail.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue/src/views/front/Home.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../vue/src/views/front/Home.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/common/config/WebConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/common/config/WebConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/controller/FileController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/controller/FileController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -101,7 +98,7 @@
       <workItem from="1747552878050" duration="5746000" />
       <workItem from="1747790238090" duration="2390000" />
       <workItem from="1747883302042" duration="1456000" />
-      <workItem from="1747898167470" duration="3552000" />
+      <workItem from="1747898167470" duration="11393000" />
     </task>
     <servers />
   </component>

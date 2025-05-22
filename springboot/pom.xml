@@ -75,7 +75,17 @@
             <artifactId>java-jwt</artifactId>
             <version>4.3.0</version>
         </dependency>
-
+        <!-- 对象管理服务 -->
+        <dependency>
+            <groupId>io.minio</groupId>
+            <artifactId>minio</artifactId>
+            <version>8.5.10</version>
+        </dependency>
+        <dependency>
+            <groupId>com.squareup.okhttp3</groupId>
+            <artifactId>okhttp</artifactId>
+            <version>4.9.3</version>
+        </dependency>
     </dependencies>
 
     <build>
