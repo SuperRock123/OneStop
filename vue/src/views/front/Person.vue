@@ -88,15 +88,20 @@ export default {
   methods: {
     update() {
       // 保存当前的用户信息到数据库
+      console.log("old user",this.user)
       this.$request.put('/user/update', this.user).then(res => {
         if (res.code === '200') {
           // 成功更新
           this.$message.success('保存成功')
+          this.user = res
+          console.log("new user",this.user)
+          // return;
           // 更新浏览器缓存里的用户信息
-          localStorage.setItem('xm-user', JSON.stringify(this.user))
-
+          // localStorage.setItem('xm-user', JSON.stringify(this.user))
+          localStorage.removeItem('xm-user')
           // 触发父级的数据更新
           this.$emit('update:user')
+          this.$router.push('/login')
         } else {
           this.$message.error(res.msg)
         }
@@ -130,20 +135,20 @@ export default {
 </script>
 
 <style scoped>
-/deep/.el-form-item__label {
+.el-form-item__label {
   font-weight: bold;
 }
-/deep/.el-upload {
+.el-upload {
   border-radius: 50%;
 }
-/deep/.avatar-uploader .el-upload {
+.avatar-uploader .el-upload {
   border: 1px dashed #d9d9d9;
   cursor: pointer;
   position: relative;
   overflow: hidden;
   border-radius: 50%;
 }
-/deep/.avatar-uploader .el-upload:hover {
+.avatar-uploader .el-upload:hover {
   border-color: #409EFF;
 }
 .avatar-uploader-icon {

@@ -16,6 +16,13 @@ spring:
     enabled: true
     locations: classpath:db/migration
     baseline-on-migrate: true
+      # HikariCP 相关配置（可选，Spring Boot 会自动装配）
+    hikari:
+      maximum-pool-size: 10
+      minimum-idle: 5
+      idle-timeout: 30000
+      connection-timeout: 30000
+      pool-name: HikariCP
 # 配置mybatis实体和xml映射
 mybatis:
   mapper-locations: classpath:mapper/*.xml
@@ -33,6 +40,7 @@ pagehelper:
 # minio
 minio:
   endpoint: http://127.0.0.1:9000
+  # endpoint: http://10.70.61.97:9000
   access-key: minioadmin
   secret-key: minioadmin
 ip: localhost
