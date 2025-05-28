@@ -132,13 +132,13 @@ public class GoodsService {
     public List<Goods> selectTop15() {
         List<Goods> list = GoodsListCache.getIfPresent("top15");
         if (list == null) {
-            // System.out.println("热门商品，缓存未命中，查询数据库");
+            System.out.println("热门商品，缓存未命中，查询数据库");
             list = goodsMapper.selectTop15();
             GoodsListCache.put("top15", list);
         }
-        // else {
-        //     System.out.println("热门商品，缓存命中，直接返回");
-        // }
+        else {
+        System.out.println("热门商品，缓存命中，直接返回");
+        }
         return list;
     }
 
@@ -151,7 +151,7 @@ public class GoodsService {
             GoodsListCache.put(key, list);
         }
         // else {
-        //     System.out.println("商品类型，缓存命中，直接返回");
+        // System.out.println("商品类型，缓存命中，直接返回");
         // }
         return list;
     }
@@ -169,7 +169,7 @@ public class GoodsService {
             GoodsListCache.put(key, list);
         }
         // else {
-        //     System.out.println("商品名称，缓存命中，直接返回");
+        // System.out.println("商品名称，缓存命中，直接返回");
         // }
         return goodsMapper.selectByName(name);
     }
@@ -199,7 +199,7 @@ public class GoodsService {
         // 定义一个存储最后返回给前端的商品List
         List<Goods> recommendResult;
         // 创建一个栅栏，等待所有的异步处理都结束后，再往下走
-        CountDownLatch countDownLatch = new CountDownLatch(allCollects.size() * allUsers.size());
+        CountDownLatch countDownLatch = new CountDownLatch(allGoods.size() * allUsers.size());
         // 创建一个线程池
         ExecutorService threadPool = Executors.newCachedThreadPool();
 

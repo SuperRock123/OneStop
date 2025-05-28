@@ -105,7 +105,7 @@ public class GoodsController {
     @GetMapping("/recommend")
     public ResponseEntity<Result> recommend() {
         List<Goods> list = goodsService.recommend();
-        // 设置前端缓存 60 秒
+        // 设置前端缓存 20 秒
         HttpHeaders headers = new HttpHeaders();
         headers.setCacheControl(CacheControl.maxAge(20, java.util.concurrent.TimeUnit.SECONDS));
         return ResponseEntity.ok().headers(headers).body(Result.success(list));

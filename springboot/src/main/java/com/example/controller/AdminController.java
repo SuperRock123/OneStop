@@ -67,7 +67,7 @@ public class AdminController {
      * 查询所有
      */
     @GetMapping("/selectAll")
-    public Result selectAll(Admin admin ) {
+    public Result selectAll(Admin admin) {
         List<Admin> list = adminService.selectAll(admin);
         return Result.success(list);
     }
@@ -77,8 +77,8 @@ public class AdminController {
      */
     @GetMapping("/selectPage")
     public Result selectPage(Admin admin,
-                             @RequestParam(defaultValue = "1") Integer pageNum,
-                             @RequestParam(defaultValue = "10") Integer pageSize) {
+            @RequestParam(defaultValue = "1") Integer pageNum,
+            @RequestParam(defaultValue = "10") Integer pageSize) {
         PageInfo<Admin> page = adminService.selectPage(admin, pageNum, pageSize);
         return Result.success(page);
     }

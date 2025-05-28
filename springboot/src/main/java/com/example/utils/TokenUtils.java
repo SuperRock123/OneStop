@@ -38,11 +38,12 @@ public class TokenUtils {
     BusinessService businessService;
     @Resource
     UserService userService;
+
     @PostConstruct
     public void setUserService() {
         staticAdminService = adminService;
         staticBusinessService = businessService;
-        staticUserService=userService;
+        staticUserService = userService;
     }
 
     /**
@@ -59,12 +60,13 @@ public class TokenUtils {
      */
     public static Account getCurrentUser() {
         try {
-            HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
+            HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes())
+                    .getRequest();
             String token = request.getHeader(Constants.TOKEN);
             if (ObjectUtil.isNotEmpty(token)) {
                 String userRole = JWT.decode(token).getAudience().get(0);
-                String userId = userRole.split("-")[0];  // 获取用户id
-                String role = userRole.split("-")[1];    // 获取角色
+                String userId = userRole.split("-")[0]; // 获取用户id
+                String role = userRole.split("-")[1]; // 获取角色
                 if (RoleEnum.ADMIN.name().equals(role)) {
                     return staticAdminService.selectById(Integer.valueOf(userId));
                 }
@@ -78,7 +80,6 @@ public class TokenUtils {
         } catch (Exception e) {
             log.error("获取当前用户信息出错", e);
         }
-        return new Account();  // 返回空的账号对象
+        return new Account(); // 返回空的账号对象
     }
 }
-

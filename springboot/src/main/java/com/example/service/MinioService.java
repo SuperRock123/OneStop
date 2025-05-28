@@ -37,8 +37,7 @@ public class MinioService {
                         .object(objectName)
                         .stream(file.getInputStream(), file.getSize(), -1)
                         .contentType(file.getContentType())
-                        .build()
-        );
+                        .build());
         return objectName;
     }
 
@@ -49,8 +48,7 @@ public class MinioService {
                 GetObjectArgs.builder()
                         .bucket(bucketName)
                         .object(objectName)
-                        .build()
-        );
+                        .build());
     }
 
     // 删除文件
@@ -60,8 +58,7 @@ public class MinioService {
                 RemoveObjectArgs.builder()
                         .bucket(bucketName)
                         .object(objectName)
-                        .build()
-        );
+                        .build());
     }
 
     // 获取文件外链

@@ -39,7 +39,7 @@ pagehelper:
   params: count=countSql
 # minio
 minio:
-  endpoint: http://127.0.0.1:9000
+  endpoint: http://localhost:9000
   # endpoint: http://10.70.61.97:9000
   access-key: minioadmin
   secret-key: minioadmin

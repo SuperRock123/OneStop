@@ -7,7 +7,6 @@ const request = axios.create({
     // baseURL: 'http://10.70.61.97:9090',   // 后端的接口地址  ip:port
     timeout: 30000                          // 30s请求超时
 })
-
 // request 拦截器
 // 可以自请求发送前对请求做一些处理
 // 比如统一加token，对请求参数统一加密
@@ -27,7 +26,6 @@ request.interceptors.request.use(config => {
 request.interceptors.response.use(
     response => {
         let res = response.data;
-
         // 兼容服务端返回的字符串数据
         if (typeof res === 'string') {
             res = res ? JSON.parse(res) : res
@@ -42,6 +40,4 @@ request.interceptors.response.use(
         return Promise.reject(error)
     }
 )
-
-
 export default request

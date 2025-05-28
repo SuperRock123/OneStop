@@ -5,7 +5,7 @@ Vue.use(VueRouter)
 
 // 解决导航栏或者底部导航tabBar中的vue-router在3.0版本以上频繁点击菜单报错的问题。
 const originalPush = VueRouter.prototype.push
-VueRouter.prototype.push = function push (location) {
+VueRouter.prototype.push = function push(location) {
   return originalPush.call(this, location).catch(err => err)
 }
 
@@ -14,7 +14,7 @@ const routes = [
     path: '/',
     name: 'Manager',
     component: () => import('../views/Manager.vue'),
-    redirect:'/front/home',
+    redirect: '/front/home',
     children: [
       { path: '403', name: 'NoAuth', meta: { name: '无权限' }, component: () => import('../views/manager/403') },
       { path: 'home', name: 'Home', meta: { name: '系统首页' }, component: () => import('../views/manager/Home') },
@@ -61,7 +61,7 @@ const router = new VueRouter({
 
 // 注：不需要前台的项目，可以注释掉该路由守卫
 // 路由守卫
-router.beforeEach((to ,from, next) => {
+router.beforeEach((to, from, next) => {
   let user = JSON.parse(localStorage.getItem("xm-user") || '{}');
   if (to.path === '/') {
     if (user.role) {

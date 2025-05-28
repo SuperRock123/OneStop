@@ -9,9 +9,7 @@ import java.util.Map;
 import java.util.TreeMap;
 import java.util.stream.IntStream;
 
-
 public class CoreMath {
-
 
     /**
      * 计算相关系数并排序
@@ -21,11 +19,11 @@ public class CoreMath {
         List<RelateDTO> userItems = map.get(key);
         if (CollectionUtil.isNotEmpty(userItems)) {
             map.forEach((k, v) -> {
-                //排除此用户
+                // 排除此用户
                 if (!k.equals(key)) {
-                    //关系系数
+                    // 关系系数
                     double coefficient = relateDist(v, userItems, type);
-                    //关系距离
+                    // 关系距离
                     double distance = Math.abs(coefficient);
                     distMap.put(k, distance);
                 }
@@ -33,7 +31,6 @@ public class CoreMath {
         }
         return distMap;
     }
-
 
     /**
      * 计算两个序列间的相关系数
@@ -57,11 +54,9 @@ public class CoreMath {
         return getRelate(xs, ys);
     }
 
-
-
     public static double getRelate(List<Integer> xs, List<Integer> ys) {
         int n = xs.size();
-        //至少有两个元素
+        // 至少有两个元素
         if (n < 2) {
             return 0D;
         }

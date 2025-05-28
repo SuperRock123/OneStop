@@ -49,10 +49,10 @@ public class OrdersService {
 
             // 把购物车里对应的商品删掉
             cartMapper.deleteById(cart.getId());
-//            增加销量
-           Goods goods = goodsMapper.selectById(cart.getGoodsId());
-           goods.setCount(goods.getCount() + cart.getNum());
-           goodsMapper.updateById(goods);
+            // 增加销量
+            Goods goods = goodsMapper.selectById(cart.getGoodsId());
+            goods.setCount(goods.getCount() + cart.getNum());
+            goodsMapper.updateById(goods);
         }
     }
 
