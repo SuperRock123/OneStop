@@ -60,6 +60,8 @@ coverage/
 *.ppt
 *.pptx
 *.pdf
+# 不忽略设计说明文档
+!OneStop-设计说明.doc
 
 # 上传文件目录（根据项目需要保留）
 # /files/
